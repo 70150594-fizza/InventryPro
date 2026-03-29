@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventryPro | Sign Up</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <style>
+        body { transition: background-color 0.3s, color 0.3s; }
+        body:not(.dark) { background-color: #fff1f2; color: #831843; } 
+        body:not(.dark) nav, body:not(.dark) footer { background-color: #be185d; } 
+        
+        .dark body { background-color: #111827; color: #f3f4f6; } 
+        .dark nav, .dark footer { background-color: #1f2937; } 
+        
+        .auth-card { background-color: white; border-radius: 2.5rem; padding: 3rem; transition: all 0.3s; }
+        .dark .auth-card { background-color: #1f2937; color: white; border: 1px solid #374151; }
+        
+        .dark input { background-color: #374151 !important; color: white !important; border-color: #4b5563 !important; }
+
+        /* Custom Toggle Switch CSS */
+        .switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #ec4899; }
+        input:checked + .slider:before { transform: translateX(26px); }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen font-sans">
+
+    <nav class="p-4 text-white flex justify-between items-center shadow-xl sticky top-0 z-50">
+        <div class="flex flex-col">
+            <div class="font-bold text-2xl flex items-center gap-2">
+                <span>📦</span> InventryPro
+            </div>
+            <span class="text-[10px] opacity-80 font-medium tracking-[0.2em] uppercase ml-8">Developed by Fizza Azeem</span>
+        </div>
+        
+        <ul class="hidden md:flex gap-8 font-semibold uppercase text-sm tracking-widest">
+            <li><a href="../index.html" class="hover:text-pink-200">Home</a></li>
+            <li><a href="about.html" class="hover:text-pink-200">About</a></li>
+            <li><a href="contact.html" class="hover:text-pink-200">Contact</a></li>
+            <li><a href="signin.html" class="hover:text-pink-200">Sign In</a></li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+            <span class="text-[10px] font-black uppercase">Dark Mode</span>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="auth-card shadow-2xl w-full max-w-md border-b-8 border-pink-500 transform transition-all hover:scale-[1.01]">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-black text-pink-600 dark:text-pink-400 uppercase tracking-tighter">Create Account</h2>
+                <p class="text-sm font-bold text-gray-400 mt-2 uppercase tracking-widest">Join InventryPro today</p>
+            </div>
+
+            <form action="#" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-black uppercase text-pink-500 mb-2 tracking-widest">Full Name</label>
+                    <input type="text" placeholder="Fizza Azeem" required 
+                           class="w-full p-4 border-2 border-gray-100 rounded-2xl outline-none focus:border-pink-500 transition-all font-bold">
+                </div>
+                <div>
+                    <label class="block text-xs font-black uppercase text-pink-500 mb-2 tracking-widest">Email Address</label>
+                    <input type="email" placeholder="fizza@example.com" required 
+                           class="w-full p-4 border-2 border-gray-100 rounded-2xl outline-none focus:border-pink-500 transition-all font-bold">
+                </div>
+                <div>
+                    <label class="block text-xs font-black uppercase text-pink-500 mb-2 tracking-widest">Password</label>
+                    <input type="password" placeholder="••••••••" required 
+                           class="w-full p-4 border-2 border-gray-100 rounded-2xl outline-none focus:border-pink-500 transition-all font-bold">
+                </div>
+
+                <button type="submit" class="w-full bg-pink-600 text-white py-5 rounded-2xl font-black text-xl shadow-xl hover:bg-pink-700 hover:scale-[1.02] active:scale-95 transition-all uppercase mt-2">
+                    Sign Up
+                </button>
+            </form>
+
+            <p class="text-center mt-6 text-sm font-medium">
+                Already have an account? <a href="signin.html" class="text-pink-600 font-black hover:underline">Sign In</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="p-8 text-white text-center">
+        <p class="font-bold text-sm tracking-wider">© 2026 InventryPro - Developed by Fizza Azeem</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            themeToggle.checked = true;
+        }
+
+        themeToggle.onchange = () => {
+            if (themeToggle.checked) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        };
+    </script>
+</body>
+</html>
