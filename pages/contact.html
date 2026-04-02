@@ -1,170 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InventryPro | Contact Us</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 
-    <style>
-        body { transition: background-color 0.3s, color 0.3s; }
-        body:not(.dark) { background-color: #fff1f2; color: #831843; } 
-        body:not(.dark) nav, body:not(.dark) footer { background-color: #be185d; } 
-        
-        .dark body { background-color: #111827; color: #f3f4f6; } 
-        .dark nav, .dark footer { background-color: #1f2937; } 
-        
-        .contact-card { background-color: white; border-radius: 2rem; padding: 2.5rem; transition: all 0.3s; }
-        .dark .contact-card { background-color: #1f2937; color: white; border: 1px solid #374151; }
-        
-        .dark input, .dark textarea { background-color: #374151 !important; color: white !important; border-color: #4b5563 !important; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InventryPro | Contact Us</title>
 
-        .switch { position: relative; display: inline-block; width: 50px; height: 24px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
-        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
-        input:checked + .slider { background-color: #ec4899; }
-        input:checked + .slider:before { transform: translateX(26px); }
-    </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+
+  <style>
+    body {
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body:not(.dark) {
+      background-color: #fff1f2;
+      color: #831843;
+    }
+
+    nav, footer {
+      background-color: #be185d;
+    }
+
+    .dark {
+      background-color: #111827;
+      color: #f3f4f6;
+    }
+
+    .dark nav, .dark footer {
+      background-color: #1f2937;
+    }
+
+    .contact-card {
+      background-color: white;
+      border-radius: 2rem;
+      padding: 2.5rem;
+      transition: all 0.3s;
+    }
+
+    .dark .contact-card {
+      background-color: #1f2937;
+      color: white;
+      border: 1px solid #374151;
+    }
+
+    .dark input, .dark textarea {
+      background-color: #374151 !important;
+      color: white !important;
+      border-color: #4b5563 !important;
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #ec4899;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  </style>
 </head>
 
 <body class="flex flex-col min-h-screen font-sans">
 
+<!-- NAVBAR -->
 <nav class="p-4 text-white flex justify-between items-center shadow-xl sticky top-0 z-50">
-    <div class="flex flex-col">
-        <div class="font-bold text-2xl flex items-center gap-2">
-            📦 InventryPro
-        </div>
-        <span class="text-[10px] opacity-80 font-medium tracking-[0.2em] uppercase ml-8">
-            Developed by Fizza Azeem
-        </span>
-    </div>
-    
-    <ul class="hidden md:flex gap-8 font-semibold uppercase text-sm tracking-widest">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="border-b-2 border-white">Contact</a></li>
-        <li><a href="signin.html">Sign In</a></li>
-    </ul>
+  <div>
+    <h1 class="font-bold text-2xl">📦 InventryPro</h1>
+    <p class="text-xs opacity-80">Developed by Fizza Azeem</p>
+  </div>
 
-    <div class="flex items-center gap-3">
-        <span class="text-[10px] font-black uppercase">Dark Mode</span>
-        <label class="switch">
-            <input type="checkbox" id="themeToggle">
-            <span class="slider"></span>
-        </label>
-    </div>
+  <ul class="hidden md:flex gap-8 font-semibold uppercase text-sm">
+    <li><a href="../index.html" class="hover:text-pink-200">Home</a></li>
+    <li><a href="about.html" class="hover:text-pink-200">About</a></li>
+    <li><a href="contact.html" class="border-b-2 border-white">Contact</a></li>
+    <li><a href="signin.html" class="hover:text-pink-200">Sign In</a></li>
+  </ul>
+
+  <div class="flex items-center gap-2">
+    <span class="text-xs font-bold">Dark</span>
+    <label class="switch">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
 </nav>
 
-<main class="flex-grow container mx-auto p-12 lg:p-16">
-    <div class="max-w-4xl mx-auto">
-        
-        <div class="text-center mb-12">
-            <h1 class="text-6xl font-black text-pink-600 dark:text-pink-400 mb-4 uppercase">
-                Get In Touch
-            </h1>
-            <p class="text-xl text-gray-500 dark:text-gray-400">
-                Have questions? We'd love to hear from you.
-            </p>
+<!-- MAIN -->
+<main class="flex-grow container mx-auto p-10">
+
+  <div class="max-w-4xl mx-auto text-center mb-10">
+    <h1 class="text-5xl font-black text-pink-600 dark:text-pink-400">Get In Touch</h1>
+    <p class="text-gray-500 dark:text-gray-400">We'd love to hear from you</p>
+  </div>
+
+  <div class="contact-card shadow-2xl border-t-8 border-pink-500 max-w-3xl mx-auto">
+
+    <!-- SUCCESS MESSAGE -->
+    <p id="successMsg" class="hidden text-green-500 font-bold text-center mb-4">
+      ✅ Message sent successfully!
+    </p>
+
+    <form onsubmit="handleSubmit(event)" class="space-y-6">
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div>
+          <label for="name" class="block text-xs font-bold text-pink-500 mb-1">Full Name</label>
+          <input id="name" name="fullname" type="text" required
+            class="w-full p-3 border rounded-xl focus:border-pink-500 outline-none">
         </div>
 
-        <div class="contact-card shadow-2xl border-t-8 border-pink-500">
-
-            <!-- FORM -->
-            <form id="contactForm" action="https://formspree.io/f/mnjobaga" method="POST" class="space-y-6">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" name="name" placeholder="Your Name" required 
-                        class="w-full p-4 border-2 border-gray-100 rounded-xl font-bold">
-
-                    <input type="email" name="email" placeholder="email@example.com" required 
-                        class="w-full p-4 border-2 border-gray-100 rounded-xl font-bold">
-                </div>
-
-                <input type="text" name="subject" placeholder="How can we help?" required 
-                    class="w-full p-4 border-2 border-gray-100 rounded-xl font-bold">
-
-                <textarea name="message" rows="5" placeholder="Write your message here..." required 
-                    class="w-full p-4 border-2 border-gray-100 rounded-xl font-bold resize-none"></textarea>
-
-                <input type="hidden" name="_subject" value="New InventryPro Contact Message">
-
-                <button id="submitBtn" type="submit"
-                    class="w-full bg-pink-600 text-white py-5 rounded-2xl font-black text-xl">
-                    Send Message
-                </button>
-
-            </form>
-
-            <!-- SUCCESS MESSAGE -->
-            <div id="successMessage" class="hidden bg-green-100 text-green-800 p-4 rounded-xl text-center font-bold mt-6">
-                🎉 Message sent successfully!
-            </div>
-
+        <div>
+          <label for="email" class="block text-xs font-bold text-pink-500 mb-1">Email</label>
+          <input id="email" name="email" type="email" required
+            class="w-full p-3 border rounded-xl focus:border-pink-500 outline-none">
         </div>
-    </div>
+
+      </div>
+
+      <div>
+        <label for="subject" class="block text-xs font-bold text-pink-500 mb-1">Subject</label>
+        <input id="subject" name="subject" type="text" required
+          class="w-full p-3 border rounded-xl focus:border-pink-500 outline-none">
+      </div>
+
+      <div>
+        <label for="message" class="block text-xs font-bold text-pink-500 mb-1">Message</label>
+        <textarea id="message" name="message" rows="5" required
+          class="w-full p-3 border rounded-xl focus:border-pink-500 outline-none"></textarea>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-pink-600 text-white py-4 rounded-xl font-bold hover:bg-pink-700 transition">
+        Send Message
+      </button>
+
+    </form>
+  </div>
 </main>
 
-<footer class="p-8 text-white text-center mt-20">
-    © 2026 InventryPro - Developed by Fizza Azeem
+<!-- FOOTER -->
+<footer class="p-6 text-white text-center mt-10">
+  <p>© 2026 InventryPro - Developed by Fizza Azeem</p>
 </footer>
 
+<!-- SCRIPTS -->
 <script>
-const themeToggle = document.getElementById('themeToggle');
+  const themeToggle = document.getElementById('themeToggle');
 
-if (localStorage.getItem('theme') === 'dark') {
+  if (localStorage.getItem('theme') === 'dark') {
     themeToggle.checked = true;
-}
+  }
 
-themeToggle.onchange = () => {
+  themeToggle.onchange = () => {
     if (themeToggle.checked) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
-};
+  };
 
-// FORM SUBMIT (AJAX)
-const form = document.getElementById('contactForm');
-const successMessage = document.getElementById('successMessage');
-const submitBtn = document.getElementById('submitBtn');
-
-form.addEventListener('submit', async function(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-
-    submitBtn.innerText = "Sending...";
-    submitBtn.disabled = true;
-
-    const data = new FormData(form);
-
-    const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-        form.reset();
-        successMessage.classList.remove('hidden');
-        submitBtn.innerText = "Send Message";
-        submitBtn.disabled = false;
-    } else {
-        alert("❌ Something went wrong!");
-        submitBtn.innerText = "Send Message";
-        submitBtn.disabled = false;
-    }
-});
+    document.getElementById("successMsg").classList.remove("hidden");
+    e.target.reset();
+  }
 </script>
 
 </body>
