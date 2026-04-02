@@ -58,7 +58,6 @@
       border-color: #4b5563 !important;
     }
 
-    /* Toggle Switch */
     .switch {
       position: relative;
       display: inline-block;
@@ -143,33 +142,34 @@
       ✅ Message sent successfully!
     </p>
 
-    <form action="https://formspree.io/f/xpqojany" method="POST" class="space-y-6">
+    <!-- FORM -->
+    <form id="contactForm" action="https://formspree.io/f/xpqojany" method="POST" class="space-y-6">
 
       <div class="grid md:grid-cols-2 gap-6">
 
         <div>
-          <label for="name" class="block text-xs font-bold text-pink-500 mb-1">Full Name</label>
-          <input id="name" name="fullname" type="text" required
+          <label class="block text-xs font-bold text-pink-500 mb-1">Full Name</label>
+          <input name="fullname" type="text" required
             class="w-full p-3 border rounded-xl focus:border-pink-500 outline-none">
         </div>
 
         <div>
-          <label for="email" class="block text-xs font-bold text-pink-500 mb-1">Email</label>
-          <input id="email" name="email" type="email" required
+          <label class="block text-xs font-bold text-pink-500 mb-1">Email</label>
+          <input name="email" type="email" required
             class="w-full p-3 border rounded-xl focus:border-pink-500 outline-none">
         </div>
 
       </div>
 
       <div>
-        <label for="subject" class="block text-xs font-bold text-pink-500 mb-1">Subject</label>
-        <input id="subject" name="subject" type="text" required
+        <label class="block text-xs font-bold text-pink-500 mb-1">Subject</label>
+        <input name="subject" type="text" required
           class="w-full p-3 border rounded-xl focus:border-pink-500 outline-none">
       </div>
 
       <div>
-        <label for="message" class="block text-xs font-bold text-pink-500 mb-1">Message</label>
-        <textarea id="message" name="message" rows="5" required
+        <label class="block text-xs font-bold text-pink-500 mb-1">Message</label>
+        <textarea name="message" rows="5" required
           class="w-full p-3 border rounded-xl focus:border-pink-500 outline-none"></textarea>
       </div>
 
@@ -205,11 +205,25 @@
     }
   };
 
-  function handleSubmit(e) {
+  // FORM SUBMIT (AJAX)
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", async function(e) {
     e.preventDefault();
-    document.getElementById("successMsg").classList.remove("hidden");
-    e.target.reset();
-  }
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      document.getElementById("successMsg").classList.remove("hidden");
+      form.reset();
+    }
+  });
 </script>
 
 </body>
